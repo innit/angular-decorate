@@ -6,6 +6,17 @@ export const getModule = (moduleName) => {
 
 export const ngModule = (moduleConfig) => {
 	return (moduleCtor) => {
-		angular.module(moduleConfig.name,moduleConfig.dependencies);
+		
+		let mod = angular.module(moduleConfig.name,moduleConfig.dependencies);
+
+		if(moduleCtor.run){
+			let run = moduleCtor.run;
+			if(moduleConfig.inject){
+				moduleConfig.inject.push(run);
+				moduleCtor.run = moduleConfig.inject;
+			}
+			mod.run(moduleCtor.run);
+		}
+
 	}
 }
