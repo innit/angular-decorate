@@ -1,28 +1,37 @@
-import {ngInject, ngController} from 'src/decorators';
+import {ngInject, ngController, ngService, ngModule} from 'src/decorators';
 import angular from 'angular';
 
-angular.module('testApp',[]);
-
-
-@ngInject('$http')
-@ngController({
-  module: 'testApp',
-  name: 'FooController',
+@ngModule({
+  name: 'demoApp',
+  dependencies: [],
+  inject: '$http',
+  configure: ['$httpProvider']
 })
-export class FooController {
-  constructor($http){
-    this.$http = $http;
+export class DemoApp {
+  static run(http){
+    console.log('run',http);
+  }
+  static config(httpProvider){
+    console.log('config',httpProvider);
   }
 }
 
 @ngController({
-  module: 'testApp',
-  name: 'BarController',
-  inject: ['$http','$window']
+  module: 'demoApp',
+  name: 'DemoController',
+  inject: ['$http']
 })
-export class BarController {
-  constructor($http,$window){
-    this.$http = $http;
-    this.$window = $window;
+export class DemoController {
+  constructor(http){
+    this.http = http;
   }
+}
+
+@ngService({
+  module: 'demoApp',
+  name: 'DemoService',
+  inject: ['$http']
+})
+export class DemoService {
+  constructor(){}
 }
