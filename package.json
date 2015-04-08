@@ -1,5 +1,7 @@
 {
+  "name": "angular-decorate",
   "jspm": {
+    "main": "./src/decorators.js",
     "directories": {},
     "dependencies": {
       "angular": "github:angular/bower-angular@^1.3.15"
