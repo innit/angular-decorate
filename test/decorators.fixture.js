@@ -6,3 +6,11 @@ export class FooController {
 		this.$http = $http;
 	}
 }
+
+@ngInject('$http','$window')
+export class BarController {
+	constructor($http,$window){
+		this.$http = $http;
+		this.$window = $window;
+	}
+}
