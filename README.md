@@ -6,7 +6,7 @@ Works with babelJS and theoretically Typescript 1.5+ (coming soon!)
 
 Does not work with Traceur (currently) as it does not support decorators (just annotations).
 
-See [https://github.com/wycats/javascript-decorators](Javascript Decorators Spec) from more info. 
+See [Javscript Decorator Spec](https://github.com/wycats/javascript-decorators) from more info. 
 
 Work In Progress! Input / Pull Requests welcome!
 
