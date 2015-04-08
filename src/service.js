@@ -2,8 +2,9 @@ import {getModule} from './module';
 
 
 export const ngService = (config) => {
+	let mod = getModule(config.module);
 	return (serviceCtor) => {
 		serviceCtor.$inject = config.inject || [];
-		getModule(config.module).service(serviceCtor);
+		mod.service(config.name,serviceCtor);
 	}
 }
