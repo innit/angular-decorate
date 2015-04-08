@@ -1,5 +1,5 @@
 export const ngInject = (...injectables) => {
-	return (constructor) => {
-		constructor.$inject = injectables || [];
-	}
+  return (constructor) => {
+    constructor.$inject = injectables || [];
+  }
 }
