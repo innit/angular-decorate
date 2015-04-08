@@ -1,10 +1,9 @@
 import {ngInject, ngController, ngService, ngModule} from 'src/decorators';
-import angular from 'angular';
 
 @ngModule({
   name: 'demoApp',
   dependencies: [],
-  inject: '$http',
+  inject: ['$http'],
   configure: ['$httpProvider']
 })
 export class DemoApp {
@@ -33,5 +32,9 @@ export class DemoController {
   inject: ['$http']
 })
 export class DemoService {
-  constructor(){}
+  constructor(http){
+    this.http = http;
+  }
 }
+
+//angular.bootstrap(document,['demoApp'])
