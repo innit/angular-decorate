@@ -2,6 +2,12 @@
 
 Writing Angular 1.x apps with ES6? Tired of declaring classes, adding manual injections, and registering everything with your angular modules? Fear not!
 
+Works with babelJS and theoretically Typescript 1.5+ (coming soon!)
+
+Does not work with Traceur (currently) as it does not support decorators (just annotations).
+
+See [https://github.com/wycats/javascript-decorators](Javascript Decorators Spec) from more info. 
+
 Work In Progress! Input / Pull Requests welcome!
 
 ```js
