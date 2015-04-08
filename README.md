@@ -2,6 +2,8 @@
 
 Writing Angular 1.x apps with ES6? Tired of declaring classes, adding manual injections, and registering everything with your angular modules? Fear not!
 
+Work In Progress! Input / Pull Requests welcome!
+
 ```js
 import {ngInject, ngController, ngService, ngModule} from 'angular-decorate';
 
