@@ -3,21 +3,42 @@
 Writing Angular 1.x apps with ES6? Tired of declaring classes, adding manual injections, and registering everything with your angular modules? Fear not!
 
 ```js
-//import angular and angular-decorate
-import angular from 'angular';
-import {ngController} from 'angular-decorate';
+import {ngInject, ngController, ngService, ngModule} from 'src/decorators';
 
-//declare your angular app...
-angular.module('myApp',['ui.router'])
+@ngModule({
+  name: 'demoApp',
+  dependencies: [],
+  inject: ['$http'],
+  configure: ['$httpProvider']
+})
+export class DemoApp {
+  static run(http){
+    console.log('run',http);
+  }
+  static config(httpProvider){
+    console.log('config',httpProvider);
+  }
+}
 
-//decorate a controller class
 @ngController({
-  module: 'myApp',
+  module: 'demoApp',
+  name: 'DemoController',
   inject: ['$http']
 })
-class MyController {
-  constructor($http){
-    this.http = $http;
+export class DemoController {
+  constructor(http){
+    this.http = http;
+  }
+}
+
+@ngService({
+  module: 'demoApp',
+  name: 'DemoService',
+  inject: ['$http']
+})
+export class DemoService {
+  constructor(http){
+    this.http = http;
   }
 }
 
