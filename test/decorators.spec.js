@@ -1,18 +1,21 @@
+
+
 import {
-  FooController,
-  BarController
+  DemoController,
+  DemoService
   //FooService, 
   //FooDirective, 
   //FooFilter
 } from './decorators.fixture';
 
-describe('decorators',function(){
+describe('$inject decorators',() => {
   
-  it('should add an $inject property to the constructor', function(){
-    expect(FooController.$inject).toEqual(['$http']);
+  it('should decorate controllers with $inject',() => {
+    expect(DemoController.$inject).toEqual(['$http'])
   });
 
-  it('should add an $inject property to the constructor and handle multiple injectables', function(){
-    expect(BarController.$inject).toEqual(['$http','$window']);
+  it('should decorate services with $inject',() => {
+    expect(DemoService.$inject).toEqual(['$http'])
   });
+
 });
