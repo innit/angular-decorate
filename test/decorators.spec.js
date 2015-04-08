@@ -1,6 +1,8 @@
-
+import angular from 'angular';
+import ng from 'angular-mocks';
 
 import {
+  DemoApp,
   DemoController,
   DemoService
   //FooService, 
@@ -19,3 +21,23 @@ describe('$inject decorators',() => {
   });
 
 });
+
+describe('angular module', () => {
+
+  it('should have declared a module',() => {
+    expect(ng.module('demoApp'));
+  });
+
+});
+
+describe('angular service', () => {
+
+  beforeEach(ng.module('demoApp'));
+
+  it('should have registered a service',ng.inject((DemoService) => {
+    expect(DemoService).toBeDefined();
+    expect(DemoService.http).toBeDefined();
+  }));
+
+});
+
